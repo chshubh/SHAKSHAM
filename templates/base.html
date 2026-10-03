@@ -1,0 +1,56 @@
+{% from '_macros.html' import csrf with context %}
+<!doctype html>
+<html lang="en" class="{{ body_class }}">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>{% block title %}SHAKSHAM{% endblock %} · Adaptive Fitness</title>
+  <meta name="description" content="Fitness that adapts to you. Exercise guidance based on your ability, goals and comfort.">
+  <link rel="icon" href="{{ url_for('static', filename='img/logo.svg') }}" type="image/svg+xml">
+  <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;600;700;800&display=swap">
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/dashboard.css') }}">
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/responsive.css') }}">
+</head>
+<body>
+  <a class="skip" href="#main">Skip to main content</a>
+  <header class="site-header">
+    <div class="container">
+      <nav class="nav" aria-label="Main">
+        <a class="brand" href="{{ url_for('index') }}"><img src="{{ url_for('static', filename='img/logo.svg') }}" alt="" width="38" height="38">SHAKSHAM</a>
+        {% set ep = request.endpoint %}
+        <ul>
+          <li><a class="navlink" href="{{ url_for('index') }}" {% if ep == 'index' %}aria-current="page"{% endif %}>Home</a></li>
+          <li><a class="navlink" href="{{ url_for('exercises') }}" {% if ep in ('exercises','exercise_detail') %}aria-current="page"{% endif %}>Exercises</a></li>
+          {% if user %}
+          <li><a class="navlink" href="{{ url_for('dashboard') }}" {% if ep == 'dashboard' %}aria-current="page"{% endif %}>Dashboard</a></li>
+          <li><a class="navlink" href="{{ url_for('progress') }}" {% if ep == 'progress' %}aria-current="page"{% endif %}>Progress</a></li>
+          <li><a class="navlink" href="{{ url_for('achievements') }}" {% if ep == 'achievements' %}aria-current="page"{% endif %}>Achievements</a></li>
+          <li><a class="navlink" href="{{ url_for('profile') }}" {% if ep == 'profile' %}aria-current="page"{% endif %}>Profile</a></li>
+          <li><form method="post" action="{{ url_for('logout') }}">{{ csrf() }}<button class="navlink" type="submit">Log out</button></form></li>
+          {% else %}
+          <li><a class="navlink" href="{{ url_for('login') }}" {% if ep == 'login' %}aria-current="page"{% endif %}>Log in</a></li>
+          <li><a class="btn btn-primary" href="{{ url_for('register') }}">Get started</a></li>
+          {% endif %}
+        </ul>
+      </nav>
+    </div>
+  </header>
+  <main id="main" tabindex="-1">
+    <div class="container">
+      {% with msgs = get_flashed_messages(with_categories=true) %}{% if msgs %}
+      <div class="flashes">{% for cat, m in msgs %}<p class="flash {{ cat }}" role="{{ 'alert' if cat == 'error' else 'status' }}">{{ m }}</p>{% endfor %}</div>
+      {% endif %}{% endwith %}
+      {% block content %}{% endblock %}
+    </div>
+  </main>
+  <footer class="site-footer">
+    <div class="container">
+      <p><strong>Not medical advice.</strong> SHAKSHAM offers general fitness guidance only. It does not diagnose, treat or replace advice from a doctor, physiotherapist or other qualified professional. Stop and seek help if something feels wrong.</p>
+      <p>Exercise content is pending review by a qualified fitness/health professional. © SHAKSHAM student project.</p>
+    </div>
+  </footer>
+  {% block scripts %}{% endblock %}
+</body>
+</html>

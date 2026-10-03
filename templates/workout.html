@@ -1,0 +1,55 @@
+{% extends 'base.html' %}{% from '_macros.html' import figure with context %}
+{% block title %}Workout{% endblock %}
+{% block content %}
+<div class="step-head"><h1 style="margin:0;font-size:1.6rem">{{ plan.row.name }}</h1><span id="ex-count" class="muted"></span></div>
+<div class="bar ex-progress" role="progressbar" aria-label="Workout progress" aria-valuemin="0" aria-valuemax="{{ plan.steps|length }}" aria-valuenow="0" id="wbar"><i style="width:0"></i></div>
+<div id="live" class="sr-only" aria-live="polite"></div>
+
+<div class="player" id="player">
+  <div>
+    {% for p in ['seated','standing','wall','floor'] %}<div data-pos="{{ p }}" hidden>{{ figure(p) }}</div>{% endfor %}
+  </div>
+  <div>
+    <h2 id="ex-name"></h2>
+    <p class="muted" id="ex-set"></p>
+    <p class="timer-label" id="timer-label">Ready</p>
+    <div class="timer" id="timer" role="timer" aria-live="off">00:00</div>
+    <div class="controls">
+      <button class="btn btn-primary btn-lg" id="btn-main" type="button">Start</button>
+      <button class="btn btn-lg" id="btn-pause" type="button" aria-pressed="false">Pause</button>
+      <button class="btn btn-lg" id="btn-next" type="button">Next exercise</button>
+      <button class="btn btn-danger btn-lg" id="btn-stop" type="button">Stop</button>
+    </div>
+    <h3 style="margin-top:1.5rem">How to do it</h3>
+    <ol class="inst" id="ex-inst"></ol>
+    <p><strong>Breathing:</strong> <span id="ex-breath"></span></p>
+    <details><summary>Easier options &amp; safety notes</summary><ul id="ex-mods"></ul><ul id="ex-safety"></ul></details>
+  </div>
+</div>
+
+<section class="card" id="fb-panel" hidden aria-labelledby="fb-h" style="max-width:640px;margin:1rem auto">
+  <h2 id="fb-h">How did this feel?</h2>
+  <p class="muted">Be honest. This helps keep your routine comfortable.</p>
+  <div class="fb-grid">
+    <button class="btn" type="button" data-rating="easy">● Easy</button>
+    <button class="btn" type="button" data-rating="moderate">◆ Moderate</button>
+    <button class="btn" type="button" data-rating="difficult">▲ Difficult</button>
+    <button class="btn btn-danger" type="button" data-rating="pain">⚠ Pain or unusual symptoms</button>
+  </div>
+</section>
+
+<section class="notice safety" id="pain-panel" role="alert" hidden style="max-width:640px;margin:1rem auto">
+  <strong class="lead">Let's stop here</strong>
+  <p>Thanks for telling us. Please don't continue this session. If the pain is severe or sudden, or comes with chest pain, dizziness or trouble breathing, get medical help right away. If it keeps happening, speak with a doctor or physiotherapist before exercising again.</p>
+  <a class="btn btn-primary" href="{{ url_for('dashboard') }}">Back to dashboard</a>
+</section>
+
+<section class="card" id="done-panel" hidden style="max-width:640px;margin:1rem auto" aria-live="polite">
+  <h2>Well done ✓</h2>
+  <p>You finished your session in <strong id="done-time"></strong>. Moving consistently matters more than moving hard.</p>
+  <ul id="done-ach"></ul>
+  <a class="btn btn-primary" href="{{ url_for('dashboard') }}">Back to dashboard</a>
+</section>
+<script type="application/json" id="plan-data">{{ payload|tojson }}</script>
+{% endblock %}
+{% block scripts %}<script src="{{ url_for('static', filename='js/workout.js') }}"></script>{% endblock %}

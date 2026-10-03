@@ -1,0 +1,43 @@
+{% extends 'base.html' %}
+{% from '_macros.html' import ex_card with context %}
+{% block title %}Fitness that adapts to you{% endblock %}
+{% block content %}
+<section class="hero">
+  <div>
+    <p class="eyebrow">Accessibility-first fitness</p>
+    <h1>Movement that <span>adapts to you</span>, not the other way around.</h1>
+    <p class="muted" style="font-size:1.15rem">Answer a few gentle questions about your ability, goals and equipment. SHAKSHAM builds a simple routine you can follow at your own pace, seated, supported or standing.</p>
+    <div class="btn-row">
+      <a class="btn btn-primary btn-lg" href="{{ url_for('register') if not user else url_for('assessment') }}">Start my assessment</a>
+      <a class="btn btn-lg" href="{{ url_for('exercises') }}">Browse exercises</a>
+    </div>
+  </div>
+  <div class="hero-art" aria-hidden="true"><img src="{{ url_for('static', filename='img/logo.svg') }}" alt="" style="width:100%;max-width:280px;display:block;margin:auto"></div>
+</section>
+
+<section class="block" aria-labelledby="how">
+  <h2 id="how">How it works</h2>
+  <ol class="steps">
+    <li><h3>Tell us about you</h3><p class="muted small">Five short steps: profile, goal, current ability and a safety check.</p></li>
+    <li><h3>Safety check first</h3><p class="muted small">If your answers suggest exercise needs professional advice, we pause and say so.</p></li>
+    <li><h3>Get your routine</h3><p class="muted small">A warm-up, main moves and cool-down that fit your time and equipment.</p></li>
+    <li><h3>Move and give feedback</h3><p class="muted small">Guided timers, easy pause and stop, and a "How did that feel?" check after every exercise.</p></li>
+  </ol>
+</section>
+
+<section class="block grid g3" aria-label="Principles">
+  <div class="card"><h3>Every ability welcome</h3><p class="muted">Seated, wall-supported and standing options. Exercises are filtered by what you tell us you find difficult.</p></div>
+  <div class="card"><h3>Transparent by design</h3><p class="muted">Simple, readable rules choose your exercises and we show you why each one was picked. No black box.</p></div>
+  <div class="card"><h3>Consistency over intensity</h3><p class="muted">Progress is about showing up and feeling confident, not about perfect bodies or punishing streaks.</p></div>
+</section>
+
+<section class="block" aria-labelledby="sample">
+  <h2 id="sample">A taste of the library</h2>
+  <div class="grid g3">{% for ex in exercises %}{{ ex_card(ex) }}{% endfor %}</div>
+</section>
+
+<section class="block notice safety" role="note">
+  <strong class="lead">Our safety promise</strong>
+  SHAKSHAM is not a medical service. It never diagnoses, never promises to treat a condition, and never tells you to push through pain. If you report warning signs (like chest pain or fainting) or a professional has told you not to exercise, we won't create a workout.
+</section>
+{% endblock %}

@@ -1,0 +1,13 @@
+@media (max-width:900px){
+  .g4,.steps{grid-template-columns:repeat(2,1fr)} .g3{grid-template-columns:repeat(2,1fr)}
+  .hero,.player{grid-template-columns:1fr}
+  .filters{grid-template-columns:1fr 1fr}
+}
+@media (max-width:600px){
+  .g2,.g3,.g4,.steps{grid-template-columns:1fr}
+  .filters{grid-template-columns:1fr}
+  .nav{gap:.4rem} .nav ul{width:100%}
+  .btn{width:100%} .btn-row .btn{flex:1 1 100%}
+  .choices{grid-template-columns:1fr}
+  main{padding-top:1.25rem}
+}

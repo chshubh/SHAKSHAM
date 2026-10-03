@@ -1,0 +1,16 @@
+{% extends 'base.html' %}{% from '_macros.html' import csrf with context %}
+{% block title %}Create account{% endblock %}
+{% block content %}
+<div class="card form-card">
+  <h1>Create your account</h1>
+  <form method="post">
+    {{ csrf() }}
+    <label class="field">Your name<input type="text" name="name" value="{{ name or '' }}" autocomplete="name" required></label>
+    <label class="field">Email<input type="email" name="email" value="{{ email or '' }}" autocomplete="email" required></label>
+    <label class="field">Password <span class="muted small">(at least 8 characters)</span><input type="password" name="password" minlength="8" autocomplete="new-password" required></label>
+    <p class="muted small">SHAKSHAM is for adults (18+). Your password is stored securely hashed.</p>
+    <button class="btn btn-primary btn-lg" type="submit" style="width:100%">Create account</button>
+  </form>
+  <p style="margin-top:1rem">Already registered? <a href="{{ url_for('login') }}">Log in</a></p>
+</div>
+{% endblock %}

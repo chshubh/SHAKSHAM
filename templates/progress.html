@@ -1,0 +1,32 @@
+{% extends 'base.html' %}{% from '_macros.html' import bars with context %}
+{% block title %}Progress{% endblock %}
+{% block content %}
+<h1>Your progress</h1>
+<p class="muted">Consistency and confidence matter more than intensity.</p>
+<div class="grid g4" style="margin:1rem 0">
+  <div class="card stat"><b>{{ stats.sessions }}</b><span>Completed sessions</span></div>
+  <div class="card stat"><b>{{ stats.streak }}</b><span>Day streak</span></div>
+  <div class="card stat"><b>{{ stats.total_minutes }}</b><span>Active minutes</span></div>
+  <div class="card stat"><b>{{ stats.active_days }}</b><span>Active days</span></div>
+</div>
+<div class="grid g2">
+  <section class="card"><h2>Last 7 days</h2><p class="muted small">Active minutes per day</p>{{ bars(stats.week) }}</section>
+  <section class="card"><h2>Last 8 weeks</h2><p class="muted small">Active minutes per week (week starting)</p>{{ bars(stats.weeks, 'min per week', '%d %b') }}</section>
+</div>
+<div class="grid g2" style="margin-top:1.25rem;align-items:start">
+  <section class="card"><h2>How exercises felt</h2>
+    {% set total = dist.values()|sum %}
+    {% for r in ['easy','moderate','difficult','pain'] %}
+    <p style="margin-bottom:.2rem"><span class="fb-pill fb-{{ r }}">{{ r|capitalize }}</span> <strong>{{ dist.get(r, 0) }}</strong></p>
+    <div class="bar" style="margin-bottom:.8rem"><i style="width:{{ (dist.get(r,0) / total * 100)|round|int if total else 0 }}%"></i></div>
+    {% else %}{% endfor %}
+    {% if not total %}<p class="muted">No feedback yet. Finish a workout to see this.</p>{% endif %}
+  </section>
+  <section class="card"><h2>Recent sessions</h2>
+    {% if sessions %}<table><thead><tr><th>Date</th><th>Time</th><th>Status</th><th>Felt</th></tr></thead><tbody>
+    {% for s in sessions %}<tr><td>{{ s.created_at|nice_date }}</td><td>{{ (s.duration_seconds // 60) }} min</td><td>{{ 'Completed' if s.completed else 'Stopped early' }}</td>
+      <td>{% if s.feedback %}<span class="fb-pill fb-{{ s.feedback }}">{{ s.feedback|capitalize }}</span>{% else %}–{% endif %}</td></tr>{% endfor %}
+    </tbody></table>{% else %}<p class="muted">No sessions yet.</p>{% endif %}
+  </section>
+</div>
+{% endblock %}

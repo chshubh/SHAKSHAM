@@ -1,0 +1,1013 @@
+[
+  {
+    "id": "seated-march",
+    "name": "Seated March",
+    "role": "warmup",
+    "categories": [
+      "mobility",
+      "general_fitness",
+      "endurance"
+    ],
+    "difficulty": "beginner",
+    "equipment": [
+      "chair"
+    ],
+    "position": "seated",
+    "target_area": [
+      "hips",
+      "legs"
+    ],
+    "duration_seconds": 60,
+    "default_sets": 2,
+    "default_reps": 0,
+    "instructions": [
+      "Sit upright on a stable chair.",
+      "Lift one foot a comfortable distance from the floor.",
+      "Lower it with control and alternate sides."
+    ],
+    "breathing_tip": "Breathe naturally and avoid holding your breath.",
+    "common_modifications": [
+      "Reduce the range of movement if needed.",
+      "Lift only your heels."
+    ],
+    "safety_notes": [
+      "Use a stable chair on a non-slip surface."
+    ],
+    "suitable_for": [
+      "beginner",
+      "seated"
+    ],
+    "avoid_if": [],
+    "media_url": ""
+  },
+  {
+    "id": "seated-arm-circles",
+    "name": "Seated Arm Circles",
+    "role": "warmup",
+    "categories": [
+      "mobility",
+      "flexibility",
+      "general_fitness"
+    ],
+    "difficulty": "beginner",
+    "equipment": [
+      "chair"
+    ],
+    "position": "seated",
+    "target_area": [
+      "shoulders"
+    ],
+    "duration_seconds": 45,
+    "default_sets": 2,
+    "default_reps": 0,
+    "instructions": [
+      "Sit tall with your arms out to the sides at a comfortable height.",
+      "Make small slow circles forward, then backward.",
+      "Keep your shoulders relaxed away from your ears."
+    ],
+    "breathing_tip": "Breathe slowly and evenly.",
+    "common_modifications": [
+      "Make the circles smaller.",
+      "Keep your hands at shoulder height or lower."
+    ],
+    "safety_notes": [
+      "Stop if you feel a pinch in the shoulder."
+    ],
+    "suitable_for": [
+      "beginner",
+      "seated"
+    ],
+    "avoid_if": [
+      "upper_body"
+    ],
+    "media_url": ""
+  },
+  {
+    "id": "seated-ankle-circles",
+    "name": "Seated Ankle Circles",
+    "role": "warmup",
+    "categories": [
+      "mobility",
+      "flexibility",
+      "balance"
+    ],
+    "difficulty": "beginner",
+    "equipment": [
+      "chair"
+    ],
+    "position": "seated",
+    "target_area": [
+      "ankles"
+    ],
+    "duration_seconds": 45,
+    "default_sets": 2,
+    "default_reps": 0,
+    "instructions": [
+      "Sit with one foot lifted slightly off the floor.",
+      "Draw slow circles with your toes in one direction, then the other.",
+      "Switch feet."
+    ],
+    "breathing_tip": "Keep breathing naturally.",
+    "common_modifications": [
+      "Keep the foot resting on the floor and just move the ankle."
+    ],
+    "safety_notes": [
+      "Hold the chair seat if you feel unsteady."
+    ],
+    "suitable_for": [
+      "beginner",
+      "seated"
+    ],
+    "avoid_if": [],
+    "media_url": ""
+  },
+  {
+    "id": "seated-cat-cow",
+    "name": "Seated Cat-Cow",
+    "role": "warmup",
+    "categories": [
+      "flexibility",
+      "mobility"
+    ],
+    "difficulty": "beginner",
+    "equipment": [
+      "chair"
+    ],
+    "position": "seated",
+    "target_area": [
+      "spine"
+    ],
+    "duration_seconds": 45,
+    "default_sets": 2,
+    "default_reps": 6,
+    "instructions": [
+      "Sit tall with your hands resting on your knees.",
+      "Gently round your back and look slightly down.",
+      "Slowly lift your chest and look forward, then repeat."
+    ],
+    "breathing_tip": "Breathe out as you round, in as you lift.",
+    "common_modifications": [
+      "Use a very small movement."
+    ],
+    "safety_notes": [
+      "Move gently and within a comfortable range."
+    ],
+    "suitable_for": [
+      "beginner",
+      "seated"
+    ],
+    "avoid_if": [
+      "back_discomfort"
+    ],
+    "media_url": ""
+  },
+  {
+    "id": "standing-march",
+    "name": "Supported Marching",
+    "role": "warmup",
+    "categories": [
+      "endurance",
+      "general_fitness",
+      "balance"
+    ],
+    "difficulty": "beginner",
+    "equipment": [
+      "none"
+    ],
+    "position": "standing",
+    "target_area": [
+      "hips",
+      "legs"
+    ],
+    "duration_seconds": 60,
+    "default_sets": 2,
+    "default_reps": 0,
+    "instructions": [
+      "Stand beside a sturdy counter or wall and rest a hand on it.",
+      "Lift one knee to a comfortable height.",
+      "Lower it and alternate sides at an easy pace."
+    ],
+    "breathing_tip": "Breathe steadily; you should be able to talk.",
+    "common_modifications": [
+      "Lift your feet only a little.",
+      "Hold the support with both hands."
+    ],
+    "safety_notes": [
+      "Keep a stable support within reach."
+    ],
+    "suitable_for": [
+      "beginner",
+      "standing"
+    ],
+    "avoid_if": [
+      "standing",
+      "balance",
+      "walking",
+      "lower_body"
+    ],
+    "media_url": ""
+  },
+  {
+    "id": "wall-push-up",
+    "name": "Wall Push-Up",
+    "role": "main",
+    "categories": [
+      "strength",
+      "general_fitness"
+    ],
+    "difficulty": "beginner",
+    "equipment": [
+      "none"
+    ],
+    "position": "wall",
+    "target_area": [
+      "chest",
+      "arms"
+    ],
+    "duration_seconds": 60,
+    "default_sets": 2,
+    "default_reps": 8,
+    "instructions": [
+      "Stand facing a stable wall.",
+      "Place your hands on the wall at a comfortable height.",
+      "Bend your elbows to move toward the wall.",
+      "Push gently away and return to the starting position."
+    ],
+    "breathing_tip": "Breathe in as you lean in, out as you push away.",
+    "common_modifications": [
+      "Reduce the range of movement.",
+      "Stand closer to the wall."
+    ],
+    "safety_notes": [
+      "Use a stable wall and clear surrounding space."
+    ],
+    "suitable_for": [
+      "beginner",
+      "wall"
+    ],
+    "avoid_if": [
+      "upper_body"
+    ],
+    "media_url": ""
+  },
+  {
+    "id": "seated-knee-extension",
+    "name": "Seated Knee Extension",
+    "role": "main",
+    "categories": [
+      "mobility",
+      "strength"
+    ],
+    "difficulty": "beginner",
+    "equipment": [
+      "chair"
+    ],
+    "position": "seated",
+    "target_area": [
+      "legs"
+    ],
+    "duration_seconds": 60,
+    "default_sets": 2,
+    "default_reps": 8,
+    "instructions": [
+      "Sit upright on a stable chair.",
+      "Extend one leg comfortably.",
+      "Pause briefly and lower it slowly.",
+      "Repeat on the other side."
+    ],
+    "breathing_tip": "Breathe out as you straighten the leg.",
+    "common_modifications": [
+      "Use a smaller range of movement."
+    ],
+    "safety_notes": [
+      "Move within a comfortable range."
+    ],
+    "suitable_for": [
+      "beginner",
+      "seated"
+    ],
+    "avoid_if": [
+      "joint_discomfort"
+    ],
+    "media_url": ""
+  },
+  {
+    "id": "seated-torso-twist",
+    "name": "Seated Torso Twist",
+    "role": "main",
+    "categories": [
+      "flexibility",
+      "mobility"
+    ],
+    "difficulty": "beginner",
+    "equipment": [
+      "chair"
+    ],
+    "position": "seated",
+    "target_area": [
+      "core",
+      "spine"
+    ],
+    "duration_seconds": 45,
+    "default_sets": 2,
+    "default_reps": 6,
+    "instructions": [
+      "Sit tall with your hands crossed over your chest or on your thighs.",
+      "Slowly turn your upper body to one side.",
+      "Return to the centre and turn to the other side."
+    ],
+    "breathing_tip": "Breathe out as you turn.",
+    "common_modifications": [
+      "Turn only part of the way."
+    ],
+    "safety_notes": [
+      "Keep your hips facing forward and move slowly."
+    ],
+    "suitable_for": [
+      "beginner",
+      "seated"
+    ],
+    "avoid_if": [
+      "back_discomfort"
+    ],
+    "media_url": ""
+  },
+  {
+    "id": "seated-side-bend",
+    "name": "Seated Side Bend",
+    "role": "main",
+    "categories": [
+      "flexibility",
+      "mobility"
+    ],
+    "difficulty": "beginner",
+    "equipment": [
+      "chair"
+    ],
+    "position": "seated",
+    "target_area": [
+      "core",
+      "sides"
+    ],
+    "duration_seconds": 30,
+    "default_sets": 2,
+    "default_reps": 6,
+    "instructions": [
+      "Sit tall with your feet flat on the floor.",
+      "Slide one hand down the side of your leg as you lean a little to that side.",
+      "Come back up and repeat to the other side."
+    ],
+    "breathing_tip": "Breathe in as you sit tall, out as you lean.",
+    "common_modifications": [
+      "Lean only slightly."
+    ],
+    "safety_notes": [
+      "Do not force the stretch."
+    ],
+    "suitable_for": [
+      "beginner",
+      "seated"
+    ],
+    "avoid_if": [
+      "back_discomfort"
+    ],
+    "media_url": ""
+  },
+  {
+    "id": "seated-weight-shift",
+    "name": "Seated Weight Shift",
+    "role": "main",
+    "categories": [
+      "balance",
+      "mobility"
+    ],
+    "difficulty": "beginner",
+    "equipment": [
+      "chair"
+    ],
+    "position": "seated",
+    "target_area": [
+      "core",
+      "hips"
+    ],
+    "duration_seconds": 45,
+    "default_sets": 2,
+    "default_reps": 0,
+    "instructions": [
+      "Sit tall with both feet flat.",
+      "Slowly shift your weight onto one hip, then the other.",
+      "Keep the movement small and controlled."
+    ],
+    "breathing_tip": "Keep breathing smoothly.",
+    "common_modifications": [
+      "Hold the chair seat with one hand."
+    ],
+    "safety_notes": [
+      "Keep both feet planted on the floor."
+    ],
+    "suitable_for": [
+      "beginner",
+      "seated"
+    ],
+    "avoid_if": [],
+    "media_url": ""
+  },
+  {
+    "id": "seated-band-row",
+    "name": "Seated Band Row",
+    "role": "main",
+    "categories": [
+      "strength",
+      "endurance"
+    ],
+    "difficulty": "beginner",
+    "equipment": [
+      "chair",
+      "resistance_band"
+    ],
+    "position": "seated",
+    "target_area": [
+      "back",
+      "arms"
+    ],
+    "duration_seconds": 60,
+    "default_sets": 2,
+    "default_reps": 10,
+    "instructions": [
+      "Loop a resistance band around a sturdy anchor or your feet as shown on the band's instructions.",
+      "Pull your elbows back, squeezing your shoulder blades gently.",
+      "Return slowly."
+    ],
+    "breathing_tip": "Breathe out as you pull.",
+    "common_modifications": [
+      "Use a lighter band.",
+      "Reduce the number of repetitions."
+    ],
+    "safety_notes": [
+      "Check the band for damage before use."
+    ],
+    "suitable_for": [
+      "beginner",
+      "seated"
+    ],
+    "avoid_if": [
+      "upper_body"
+    ],
+    "media_url": ""
+  },
+  {
+    "id": "seated-shoulder-press-band",
+    "name": "Seated Band Shoulder Press",
+    "role": "main",
+    "categories": [
+      "strength"
+    ],
+    "difficulty": "intermediate",
+    "equipment": [
+      "chair",
+      "resistance_band"
+    ],
+    "position": "seated",
+    "target_area": [
+      "shoulders",
+      "arms"
+    ],
+    "duration_seconds": 60,
+    "default_sets": 2,
+    "default_reps": 10,
+    "instructions": [
+      "Sit tall holding the band at shoulder height.",
+      "Press your hands upward without locking the elbows.",
+      "Lower with control."
+    ],
+    "breathing_tip": "Breathe out as you press.",
+    "common_modifications": [
+      "Use a lighter band.",
+      "Press only part of the way."
+    ],
+    "safety_notes": [
+      "Do not shrug the shoulders toward your ears."
+    ],
+    "suitable_for": [
+      "intermediate",
+      "seated"
+    ],
+    "avoid_if": [
+      "upper_body",
+      "joint_discomfort"
+    ],
+    "media_url": ""
+  },
+  {
+    "id": "seated-bicep-curl",
+    "name": "Seated Light-Weight Curl",
+    "role": "main",
+    "categories": [
+      "strength"
+    ],
+    "difficulty": "intermediate",
+    "equipment": [
+      "chair",
+      "light_weights"
+    ],
+    "position": "seated",
+    "target_area": [
+      "arms"
+    ],
+    "duration_seconds": 60,
+    "default_sets": 2,
+    "default_reps": 10,
+    "instructions": [
+      "Sit tall holding a light weight in each hand.",
+      "Bend your elbows to bring the weights toward your shoulders.",
+      "Lower slowly."
+    ],
+    "breathing_tip": "Breathe out as you lift.",
+    "common_modifications": [
+      "Use no weight at first.",
+      "Work one arm at a time."
+    ],
+    "safety_notes": [
+      "Choose a weight you can move easily."
+    ],
+    "suitable_for": [
+      "intermediate",
+      "seated"
+    ],
+    "avoid_if": [
+      "upper_body"
+    ],
+    "media_url": ""
+  },
+  {
+    "id": "chair-sit-to-stand",
+    "name": "Chair Sit-to-Stand",
+    "role": "main",
+    "categories": [
+      "strength",
+      "general_fitness",
+      "endurance"
+    ],
+    "difficulty": "beginner",
+    "equipment": [
+      "chair"
+    ],
+    "position": "standing",
+    "target_area": [
+      "legs",
+      "glutes"
+    ],
+    "duration_seconds": 60,
+    "default_sets": 2,
+    "default_reps": 8,
+    "instructions": [
+      "Sit near the front of a sturdy chair, feet hip-width apart.",
+      "Lean slightly forward and stand up.",
+      "Sit back down slowly with control."
+    ],
+    "breathing_tip": "Breathe out as you stand.",
+    "common_modifications": [
+      "Use your hands on the chair arms or thighs.",
+      "Place a cushion on the seat."
+    ],
+    "safety_notes": [
+      "Place the chair against a wall so it cannot slide."
+    ],
+    "suitable_for": [
+      "beginner",
+      "standing"
+    ],
+    "avoid_if": [
+      "standing",
+      "lower_body",
+      "balance",
+      "joint_discomfort"
+    ],
+    "media_url": ""
+  },
+  {
+    "id": "supported-heel-raise",
+    "name": "Supported Heel Raise",
+    "role": "main",
+    "categories": [
+      "strength",
+      "balance"
+    ],
+    "difficulty": "beginner",
+    "equipment": [
+      "none"
+    ],
+    "position": "wall",
+    "target_area": [
+      "calves",
+      "ankles"
+    ],
+    "duration_seconds": 60,
+    "default_sets": 2,
+    "default_reps": 10,
+    "instructions": [
+      "Stand facing a wall or counter with fingertips resting on it.",
+      "Rise slowly onto the balls of your feet.",
+      "Lower your heels slowly."
+    ],
+    "breathing_tip": "Breathe out as you rise.",
+    "common_modifications": [
+      "Rise only a little."
+    ],
+    "safety_notes": [
+      "Keep light contact with the support the whole time."
+    ],
+    "suitable_for": [
+      "beginner",
+      "wall"
+    ],
+    "avoid_if": [
+      "standing",
+      "lower_body",
+      "joint_discomfort"
+    ],
+    "media_url": ""
+  },
+  {
+    "id": "wall-side-leg-raise",
+    "name": "Wall-Supported Side Leg Raise",
+    "role": "main",
+    "categories": [
+      "balance",
+      "strength"
+    ],
+    "difficulty": "beginner",
+    "equipment": [
+      "none"
+    ],
+    "position": "wall",
+    "target_area": [
+      "hips"
+    ],
+    "duration_seconds": 60,
+    "default_sets": 2,
+    "default_reps": 8,
+    "instructions": [
+      "Stand beside a wall with one hand on it.",
+      "Lift the outside leg a short way to the side.",
+      "Lower slowly and switch sides."
+    ],
+    "breathing_tip": "Breathe steadily.",
+    "common_modifications": [
+      "Lift the leg only a few centimetres."
+    ],
+    "safety_notes": [
+      "Keep your hips level and stay tall."
+    ],
+    "suitable_for": [
+      "beginner",
+      "wall"
+    ],
+    "avoid_if": [
+      "standing",
+      "lower_body",
+      "joint_discomfort"
+    ],
+    "media_url": ""
+  },
+  {
+    "id": "wall-single-leg-stand",
+    "name": "Wall-Supported Single-Leg Stand",
+    "role": "main",
+    "categories": [
+      "balance"
+    ],
+    "difficulty": "intermediate",
+    "equipment": [
+      "none"
+    ],
+    "position": "wall",
+    "target_area": [
+      "legs",
+      "balance"
+    ],
+    "duration_seconds": 45,
+    "default_sets": 2,
+    "default_reps": 0,
+    "instructions": [
+      "Stand near a wall with one hand on it.",
+      "Shift your weight and lift one foot slightly.",
+      "Hold, then switch sides."
+    ],
+    "breathing_tip": "Keep breathing; do not hold your breath.",
+    "common_modifications": [
+      "Keep the toe touching the floor."
+    ],
+    "safety_notes": [
+      "Always keep the wall within reach."
+    ],
+    "suitable_for": [
+      "intermediate",
+      "wall"
+    ],
+    "avoid_if": [
+      "standing",
+      "lower_body",
+      "balance"
+    ],
+    "media_url": ""
+  },
+  {
+    "id": "glute-bridge",
+    "name": "Glute Bridge",
+    "role": "main",
+    "categories": [
+      "strength",
+      "mobility"
+    ],
+    "difficulty": "beginner",
+    "equipment": [
+      "none"
+    ],
+    "position": "floor",
+    "target_area": [
+      "glutes",
+      "core"
+    ],
+    "duration_seconds": 60,
+    "default_sets": 2,
+    "default_reps": 10,
+    "instructions": [
+      "Lie on your back with knees bent and feet flat.",
+      "Gently lift your hips.",
+      "Lower slowly."
+    ],
+    "breathing_tip": "Breathe out as you lift.",
+    "common_modifications": [
+      "Lift only a small amount."
+    ],
+    "safety_notes": [
+      "Move within a comfortable range."
+    ],
+    "suitable_for": [
+      "beginner",
+      "floor"
+    ],
+    "avoid_if": [
+      "standing",
+      "lower_body",
+      "balance",
+      "back_discomfort",
+      "fatigue"
+    ],
+    "media_url": ""
+  },
+  {
+    "id": "bodyweight-squat",
+    "name": "Bodyweight Squat",
+    "role": "main",
+    "categories": [
+      "strength",
+      "endurance",
+      "general_fitness"
+    ],
+    "difficulty": "intermediate",
+    "equipment": [
+      "none"
+    ],
+    "position": "standing",
+    "target_area": [
+      "legs",
+      "glutes"
+    ],
+    "duration_seconds": 60,
+    "default_sets": 3,
+    "default_reps": 12,
+    "instructions": [
+      "Stand with feet shoulder-width apart.",
+      "Bend knees and hips to lower as if sitting back.",
+      "Press through your feet to stand."
+    ],
+    "breathing_tip": "Breathe in down, out up.",
+    "common_modifications": [
+      "Squat to a chair.",
+      "Use a smaller range."
+    ],
+    "safety_notes": [
+      "Keep knees in line with toes."
+    ],
+    "suitable_for": [
+      "intermediate",
+      "standing"
+    ],
+    "avoid_if": [
+      "standing",
+      "balance",
+      "lower_body",
+      "joint_discomfort",
+      "walking"
+    ],
+    "media_url": ""
+  },
+  {
+    "id": "brisk-march",
+    "name": "Brisk March in Place",
+    "role": "main",
+    "categories": [
+      "endurance"
+    ],
+    "difficulty": "intermediate",
+    "equipment": [
+      "none"
+    ],
+    "position": "standing",
+    "target_area": [
+      "full_body"
+    ],
+    "duration_seconds": 90,
+    "default_sets": 2,
+    "default_reps": 0,
+    "instructions": [
+      "Stand tall.",
+      "March in place at a brisk, comfortable pace.",
+      "Swing your arms gently."
+    ],
+    "breathing_tip": "Aim for breathing where you can still talk.",
+    "common_modifications": [
+      "Slow the pace.",
+      "Hold a counter for support."
+    ],
+    "safety_notes": [
+      "Reduce pace if you feel breathless."
+    ],
+    "suitable_for": [
+      "intermediate",
+      "standing"
+    ],
+    "avoid_if": [
+      "standing",
+      "balance",
+      "lower_body",
+      "walking",
+      "fatigue",
+      "joint_discomfort"
+    ],
+    "media_url": ""
+  },
+  {
+    "id": "seated-hamstring-stretch",
+    "name": "Seated Hamstring Stretch",
+    "role": "cooldown",
+    "categories": [
+      "flexibility",
+      "mobility"
+    ],
+    "difficulty": "beginner",
+    "equipment": [
+      "chair"
+    ],
+    "position": "seated",
+    "target_area": [
+      "hamstrings"
+    ],
+    "duration_seconds": 30,
+    "default_sets": 2,
+    "default_reps": 0,
+    "instructions": [
+      "Sit near the front of the chair.",
+      "Extend one leg with the heel on the floor.",
+      "Lean forward slightly from the hips with a straight back."
+    ],
+    "breathing_tip": "Breathe slowly and relax into the stretch.",
+    "common_modifications": [
+      "Bend the knee slightly."
+    ],
+    "safety_notes": [
+      "Stretch gently; stop if you feel pain."
+    ],
+    "suitable_for": [
+      "beginner",
+      "seated"
+    ],
+    "avoid_if": [],
+    "media_url": ""
+  },
+  {
+    "id": "shoulder-shrug-release",
+    "name": "Shoulder Shrug and Release",
+    "role": "cooldown",
+    "categories": [
+      "flexibility",
+      "mobility",
+      "general_fitness"
+    ],
+    "difficulty": "beginner",
+    "equipment": [
+      "chair"
+    ],
+    "position": "seated",
+    "target_area": [
+      "neck",
+      "shoulders"
+    ],
+    "duration_seconds": 30,
+    "default_sets": 2,
+    "default_reps": 5,
+    "instructions": [
+      "Sit tall.",
+      "Raise your shoulders toward your ears.",
+      "Release them down slowly."
+    ],
+    "breathing_tip": "Breathe in as you lift, out as you release.",
+    "common_modifications": [
+      "Lift only a little."
+    ],
+    "safety_notes": [
+      "Move slowly."
+    ],
+    "suitable_for": [
+      "beginner",
+      "seated"
+    ],
+    "avoid_if": [],
+    "media_url": ""
+  },
+  {
+    "id": "wall-calf-stretch",
+    "name": "Wall Calf Stretch",
+    "role": "cooldown",
+    "categories": [
+      "flexibility"
+    ],
+    "difficulty": "beginner",
+    "equipment": [
+      "none"
+    ],
+    "position": "wall",
+    "target_area": [
+      "calves"
+    ],
+    "duration_seconds": 30,
+    "default_sets": 2,
+    "default_reps": 0,
+    "instructions": [
+      "Stand facing a wall with hands on it.",
+      "Step one foot back keeping the heel down.",
+      "Lean gently forward and hold."
+    ],
+    "breathing_tip": "Breathe slowly.",
+    "common_modifications": [
+      "Take a smaller step back."
+    ],
+    "safety_notes": [
+      "Stop if you feel any sharp pain."
+    ],
+    "suitable_for": [
+      "beginner",
+      "wall"
+    ],
+    "avoid_if": [
+      "standing",
+      "balance",
+      "lower_body"
+    ],
+    "media_url": ""
+  },
+  {
+    "id": "deep-breathing",
+    "name": "Seated Deep Breathing",
+    "role": "cooldown",
+    "categories": [
+      "general_fitness",
+      "endurance",
+      "mobility",
+      "flexibility",
+      "balance",
+      "strength"
+    ],
+    "difficulty": "beginner",
+    "equipment": [
+      "none"
+    ],
+    "position": "seated",
+    "target_area": [
+      "breath"
+    ],
+    "duration_seconds": 60,
+    "default_sets": 1,
+    "default_reps": 0,
+    "instructions": [
+      "Sit or lie in a comfortable position.",
+      "Breathe in slowly through your nose.",
+      "Breathe out slowly through pursed lips."
+    ],
+    "breathing_tip": "Let each breath out be a little longer than the breath in.",
+    "common_modifications": [
+      "Do it lying down."
+    ],
+    "safety_notes": [
+      "Stop if you feel light-headed."
+    ],
+    "suitable_for": [
+      "beginner",
+      "seated"
+    ],
+    "avoid_if": [],
+    "media_url": ""
+  }
+]

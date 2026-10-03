@@ -1,0 +1,90 @@
+{% extends 'base.html' %}{% from '_macros.html' import csrf with context %}
+{% block title %}Assessment{% endblock %}
+{% macro opt(type, name, value, label, on, desc='', req=False) %}
+<label class="choice {{ 'cb' if type == 'checkbox' }}"><input type="{{ type }}" name="{{ name }}" value="{{ value }}" {{ 'checked' if on }} {{ 'required' if req }}><span class="lbl"><span class="t">{{ label }}</span>{% if desc %}<small>{{ desc }}</small>{% endif %}</span></label>
+{% endmacro %}
+{% block content %}
+<h1>Your assessment</h1>
+<p class="muted">Small steps, no rush. Your answers are only used for general exercise personalisation.</p>
+<div class="step-head"><span id="step-title">Step 1 of 5</span><span class="muted small">About 3 minutes</span></div>
+<div class="bar" role="progressbar" aria-label="Assessment progress" aria-valuemin="1" aria-valuemax="5" aria-valuenow="1" id="pbar"><i style="width:20%"></i></div>
+
+<form method="post" id="assess" class="card" style="margin-top:1.25rem" novalidate>
+  {{ csrf() }}
+
+  <fieldset class="step" data-title="Basic profile">
+    <h2>1 · Basic profile</h2>
+    <fieldset><legend>Age group</legend><div class="choices">
+      {% for v in ['18-29','30-44','45-59','60-74','75+'] %}{{ opt('radio','age_group',v,v,a.age_group==v,'',true) }}{% endfor %}</div></fieldset>
+    <fieldset><legend>Fitness experience</legend><div class="choices">
+      {{ opt('radio','experience','beginner','Beginner',(a.experience=='beginner'),'New or returning',true) }}
+      {{ opt('radio','experience','intermediate','Intermediate',a.experience=='intermediate','Some regular activity',true) }}
+      {{ opt('radio','experience','advanced','Advanced',a.experience=='advanced','Very active',true) }}</div></fieldset>
+    <fieldset><legend>Normal activity level</legend><div class="choices">
+      {% for v,l in [('sedentary','Mostly sitting'),('light','Light activity'),('moderate','Moderately active'),('active','Very active')] %}{{ opt('radio','activity_level',v,l,a.activity_level==v,'',true) }}{% endfor %}</div></fieldset>
+    <fieldset><legend>Preferred workout length</legend><div class="choices">
+      {% for v in ['10','15','20','30'] %}{{ opt('radio','duration',v,v ~ ' minutes',(a.duration==v),'',true) }}{% endfor %}</div></fieldset>
+    <fieldset><legend>Equipment you have <span class="muted small">(optional, bodyweight is always included)</span></legend><div class="choices">
+      {{ opt('checkbox','equipment','chair','A sturdy chair',('chair' in a.get('equipment',[]))) }}
+      {{ opt('checkbox','equipment','resistance_band','Resistance band',('resistance_band' in a.get('equipment',[]))) }}
+      {{ opt('checkbox','equipment','light_weights','Light hand weights',('light_weights' in a.get('equipment',[]))) }}</div></fieldset>
+  </fieldset>
+
+  <fieldset class="step" data-title="Goal">
+    <h2>2 · Your goal</h2>
+    <fieldset><legend>What would you like to focus on?</legend><div class="choices">
+      {% for k,l in GOAL_LABELS.items() %}{{ opt('radio','goal',k,l,a.goal==k,'',true) }}{% endfor %}</div></fieldset>
+  </fieldset>
+
+  <fieldset class="step" data-title="Current physical ability">
+    <h2>3 · Current physical ability</h2>
+    <fieldset><legend>Do you currently find any of these difficult?</legend>
+      <p class="hint">Choose all that apply. We use this to leave out movements that may not suit you.</p>
+      <div class="choices" id="limits">
+      {% for k in ['walking','standing','upper_body','lower_body','balance','flexibility','fatigue'] %}{{ opt('checkbox','limitations',k,LIM_LABELS[k]|capitalize,(k in a.get('limitations',[]))) }}{% endfor %}
+      {{ opt('checkbox','limitations','none','None of these',a.get('none_selected', false)) }}</div>
+      <p class="flash error" id="limit-error" role="alert" hidden>Please choose at least one option, or "None of these".</p>
+    </fieldset>
+  </fieldset>
+
+  <fieldset class="step" data-title="Health & safety">
+    <h2>4 · Health &amp; safety</h2>
+    <p class="muted">This is a safety screen, not a medical assessment.</p>
+    <fieldset><legend>How would you describe your current health?</legend><div class="choices">
+      {{ opt('radio','health_status','good','Generally well',(a.health_status=='good'),'',true) }}
+      {{ opt('radio','health_status','managing','Managing ongoing health matters',(a.health_status=='managing'),'',true) }}
+      {{ opt('radio','health_status','unsure','Not sure',(a.health_status=='unsure'),'',true) }}</div></fieldset>
+    <fieldset><legend>Any injury or recovery right now?</legend><div class="choices">
+      {{ opt('radio','injury_status','none','No injury',(a.injury_status=='none'),'',true) }}
+      {{ opt('radio','injury_status','minor','Minor niggle or soreness',(a.injury_status=='minor'),'',true) }}
+      {{ opt('radio','injury_status','recovering','Recovering, and cleared to be active',(a.injury_status=='recovering'),'',true) }}
+      {{ opt('radio','injury_status','recent_serious','Recent serious injury',(a.injury_status=='recent_serious'),'',true) }}</div></fieldset>
+    <fieldset><legend>Ongoing discomfort areas <span class="muted small">(optional)</span></legend><div class="choices">
+      {{ opt('checkbox','conditions','joint_discomfort','Joint discomfort',('joint_discomfort' in a.get('conditions',[]))) }}
+      {{ opt('checkbox','conditions','back_discomfort','Back discomfort',('back_discomfort' in a.get('conditions',[]))) }}</div></fieldset>
+    <fieldset><legend>During activity, have you experienced any of these recently?</legend><div class="choices" id="symptoms">
+      {{ opt('checkbox','symptoms','chest_pain','Chest pain',a.chest_pain) }}
+      {{ opt('checkbox','symptoms','fainting','Fainting or near-fainting',a.fainting) }}
+      {{ opt('checkbox','symptoms','severe_breathlessness','Severe unexplained breathlessness',a.severe_breathlessness) }}
+      {{ opt('checkbox','symptoms','severe_acute_pain','Severe or sudden pain',a.severe_acute_pain) }}</div></fieldset>
+    <fieldset><legend>Has a doctor or therapist told you not to exercise right now?</legend><div class="choices">
+      {{ opt('radio','professional_restriction','no','No',(a.get('professional_exercise_restriction') == false),'',true) }}
+      {{ opt('radio','professional_restriction','yes','Yes',(a.get('professional_exercise_restriction') == true),'',true) }}</div></fieldset>
+    <div class="notice safety" id="flag-warn" role="status" hidden><strong class="lead">Please check in with a professional first</strong>Based on this answer, SHAKSHAM won't create a workout. We'll explain next steps after you finish.</div>
+  </fieldset>
+
+  <fieldset class="step" data-title="Confirm">
+    <h2>5 · Review &amp; confirm</h2>
+    <div id="summary" aria-live="polite"></div>
+    <div class="notice" style="margin:1rem 0"><strong class="lead">Before you continue</strong>Your answers are used for general personalisation only. SHAKSHAM does not diagnose, treat or replace professional medical advice. Stop any exercise that causes pain or unusual symptoms.</div>
+    <label class="choice cb"><input type="checkbox" name="confirm" value="1" required><span class="lbl"><span class="t">I understand and want to continue</span></span></label>
+  </fieldset>
+
+  <div class="btn-row" style="justify-content:space-between;margin-top:1rem">
+    <button type="button" class="btn" id="back">← Back</button>
+    <button type="button" class="btn btn-primary" id="next">Next →</button>
+    <button type="submit" class="btn btn-primary btn-lg" id="submit" hidden>Create my routine</button>
+  </div>
+</form>
+{% endblock %}
+{% block scripts %}<script src="{{ url_for('static', filename='js/assessment.js') }}"></script>{% endblock %}

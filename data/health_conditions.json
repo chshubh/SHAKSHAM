@@ -1,0 +1,22 @@
+{
+  "notice": "This file is for conservative personalization and safety prompts, not diagnosis.",
+  "limitations": {
+    "walking": "Walking difficulty",
+    "standing": "Standing difficulty",
+    "upper_body": "Upper-body movement limitation",
+    "lower_body": "Lower-body movement limitation",
+    "balance": "Balance difficulty",
+    "flexibility": "Flexibility limitation",
+    "fatigue": "Fatigue with activity",
+    "joint_discomfort": "Ongoing joint discomfort",
+    "back_discomfort": "Ongoing back discomfort"
+  },
+  "red_flags": {
+    "chest_pain": "chest pain during activity",
+    "fainting": "fainting or near-fainting",
+    "severe_breathlessness": "severe unexplained shortness of breath",
+    "severe_acute_pain": "severe or sudden pain",
+    "recent_serious_injury": "a recent serious injury",
+    "professional_exercise_restriction": "a professional advising you not to exercise right now"
+  }
+}

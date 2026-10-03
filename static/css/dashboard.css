@@ -1,0 +1,30 @@
+/* dashboard, progress bars, workout player */
+.stat{text-align:left}
+.stat b{display:block;font-size:2rem;line-height:1.1;color:#fff}
+.stat span{color:var(--muted);font-size:.9rem}
+.chart{display:flex;align-items:flex-end;gap:.5rem;height:150px;padding-top:1.5rem}
+.chart .col{flex:1;display:flex;flex-direction:column;align-items:center;justify-content:flex-end;height:100%;gap:.25rem;font-size:.75rem;color:var(--muted)}
+.chart .col i{display:block;width:100%;max-width:44px;background:var(--primary);border-radius:.4rem .4rem 0 0;min-height:3px}
+.chart .col i.zero{background:var(--outline)}
+.chart .col b{color:#fff;font-size:.8rem}
+.plan-list{list-style:none;margin:1rem 0;padding:0;display:grid;gap:.5rem}
+.plan-list li{display:flex;justify-content:space-between;gap:1rem;align-items:center;background:var(--surface2);border:1px solid var(--outline);border-radius:.7rem;padding:.65rem .9rem}
+.fb-pill{font-weight:700;padding:.1rem .6rem;border-radius:99px;border:1px solid var(--outline);font-size:.8rem}
+.fb-easy::before{content:"● "} .fb-moderate::before{content:"◆ "} .fb-difficult::before{content:"▲ "} .fb-pain::before{content:"⚠ "}
+.fb-pain{border-color:var(--danger);color:var(--danger)} .fb-easy{border-color:var(--success)}
+.badge-card{text-align:left}
+.badge-card.locked{opacity:.7;border-style:dashed}
+.badge-card .ic{font-size:1.8rem}
+
+/* guided workout */
+.player{display:grid;grid-template-columns:1fr 1fr;gap:1.5rem;align-items:start}
+.timer{font-size:clamp(3rem,10vw,5rem);font-weight:800;line-height:1;color:#fff;margin:.2rem 0}
+.timer-label{font-weight:700;color:var(--primary);text-transform:uppercase;letter-spacing:.08em;font-size:.85rem}
+.controls{display:flex;gap:.75rem;flex-wrap:wrap;margin-top:1rem}
+.controls .btn-primary{flex:1 1 220px}
+.fb-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:.75rem;margin-top:.75rem}
+.fb-grid .btn{min-height:64px;font-size:1.05rem}
+.ex-progress{margin-bottom:1.25rem}
+[hidden]{display:none!important}
+.dash-split{grid-template-columns:2fr 1fr;align-items:start}
+@media (max-width:900px){.dash-split{grid-template-columns:1fr}}

@@ -1,0 +1,42 @@
+{% macro csrf() %}<input type="hidden" name="csrf_token" value="{{ csrf_token }}">{% endmacro %}
+
+{% macro figure(pos, name='') %}
+<figure class="fig">
+  {% if pos == 'seated' %}
+  <svg viewBox="0 0 200 140" role="img" aria-label="Illustration placeholder{{ ': ' ~ name if name }}. A person sitting upright on a chair." fill="none" stroke="currentColor" stroke-width="5" stroke-linecap="round" stroke-linejoin="round">
+    <path d="M55 40v78M55 88h62M117 88v30"/><circle cx="88" cy="32" r="11"/><path d="M88 45v43M88 88h32v30M88 58l24 14"/></svg>
+  {% elif pos == 'wall' %}
+  <svg viewBox="0 0 200 140" role="img" aria-label="Illustration placeholder{{ ': ' ~ name if name }}. A person standing beside a wall for support." fill="none" stroke="currentColor" stroke-width="5" stroke-linecap="round" stroke-linejoin="round">
+    <path d="M165 8v124" stroke-width="9"/><circle cx="100" cy="26" r="11"/><path d="M100 39v44M100 52l62 6M100 83l-12 42M100 83l12 42M100 52l-22 22"/></svg>
+  {% elif pos == 'floor' %}
+  <svg viewBox="0 0 200 140" role="img" aria-label="Illustration placeholder{{ ': ' ~ name if name }}. A person lying on their back with knees bent." fill="none" stroke="currentColor" stroke-width="5" stroke-linecap="round" stroke-linejoin="round">
+    <path d="M15 122h170" stroke-width="3" opacity=".5"/><circle cx="35" cy="102" r="10"/><path d="M47 106h62l24-34M133 72l16 50M60 108l18 14"/></svg>
+  {% else %}
+  <svg viewBox="0 0 200 140" role="img" aria-label="Illustration placeholder{{ ': ' ~ name if name }}. A person standing upright." fill="none" stroke="currentColor" stroke-width="5" stroke-linecap="round" stroke-linejoin="round">
+    <circle cx="100" cy="22" r="11"/><path d="M100 35v46M100 81l-14 44M100 81l14 44M100 48l-24 22M100 48l24 22"/></svg>
+  {% endif %}
+  <figcaption>Illustration placeholder · {{ pos|pretty }}</figcaption>
+</figure>
+{% endmacro %}
+
+{% macro ex_card(ex) %}
+<article class="card ex-card">
+  {{ figure(ex.position, ex.name) }}
+  <h3><a href="{{ url_for('exercise_detail', slug=ex.id) }}">{{ ex.name }}</a></h3>
+  <div>
+    <span class="tag accent">{{ ex.difficulty|pretty }}</span>
+    <span class="tag">{{ ex.position|pretty }}</span>
+    {% for c in ex.categories[:2] %}<span class="tag">{{ c|pretty }}</span>{% endfor %}
+  </div>
+  <p class="muted small">Targets: {{ ex.target_area|map('pretty')|join(', ') }}</p>
+</article>
+{% endmacro %}
+
+{% macro bars(data, unit='min', fmt='%a') %}
+{% set mx = ([data|map(attribute=1)|max, 1]|max) %}
+<div class="chart" role="img" aria-label="Bar chart of active {{ unit }}: {% for d, m in data %}{{ d.strftime(fmt) }} {{ m }}{{ ', ' if not loop.last }}{% endfor %}">
+  {% for d, m in data %}
+  <div class="col"><b>{{ m }}</b><i class="{{ 'zero' if m == 0 }}" style="height:{{ (m / mx * 100)|round|int }}%"></i><span>{{ d.strftime(fmt) if fmt == '%a' else d.strftime('%d %b') }}</span></div>
+  {% endfor %}
+</div>
+{% endmacro %}

@@ -1,0 +1,30 @@
+{% extends 'base.html' %}{% from '_macros.html' import csrf with context %}
+{% block title %}Profile{% endblock %}
+{% block content %}
+<h1>Profile &amp; accessibility</h1>
+<div class="grid g2" style="align-items:start">
+<form method="post" class="card">
+  {{ csrf() }}
+  <h2>Your details</h2>
+  <label class="field">Name<input type="text" name="name" value="{{ user.name }}" required></label>
+  <label class="field">Email<input type="email" value="{{ user.email }}" disabled></label>
+  <h2>Accessibility</h2>
+  <label class="field">Text size<select name="text_size">
+    {% for v, l in [('normal','Normal'),('large','Large'),('xlarge','Extra large')] %}<option value="{{ v }}" {{ 'selected' if user.text_size == v }}>{{ l }}</option>{% endfor %}</select></label>
+  <label class="choice cb" style="margin-bottom:.6rem"><input type="checkbox" name="high_contrast" {{ 'checked' if user.high_contrast }}><span class="lbl"><span class="t">High contrast mode</span></span></label>
+  <label class="choice cb" style="margin-bottom:1rem"><input type="checkbox" name="reduce_motion" {{ 'checked' if user.reduce_motion }}><span class="lbl"><span class="t">Reduce motion</span><small>Turns off animations and transitions</small></span></label>
+  <button class="btn btn-primary" type="submit">Save settings</button>
+</form>
+<section class="card">
+  <h2>Your assessment</h2>
+  {% if la %}
+    <p class="muted small">Last updated {{ la.created_at|nice_date }}</p>
+    {% if la.blocked %}<p class="notice safety">Your last screening paused your workout plan. Please seek professional guidance, then update your answers when appropriate.</p>
+    {% else %}<p>Goal: <span class="tag accent">{{ GOAL_LABELS[la.data.goal] }}</span></p>
+    <p>Level: <span class="tag">{{ la.data.experience|capitalize }}</span> Length: <span class="tag">{{ la.data.duration }} min</span></p>{% endif %}
+  {% else %}<p class="muted">You haven't taken the assessment yet.</p>{% endif %}
+  <a class="btn" href="{{ url_for('assessment') }}">{{ 'Retake / edit assessment' if la else 'Start assessment' }}</a>
+  <p class="small muted" style="margin-top:1rem">Your information is used only to personalise exercises. SHAKSHAM does not provide medical advice.</p>
+</section>
+</div>
+{% endblock %}

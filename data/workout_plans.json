@@ -1,0 +1,11 @@
+{
+  "beginner_general": {
+    "name": "Beginner General Movement",
+    "duration_minutes": 15,
+    "exercise_ids": [
+      "seated-march",
+      "wall-push-up",
+      "seated-knee-extension"
+    ]
+  }
+}

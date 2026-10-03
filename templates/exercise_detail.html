@@ -1,0 +1,23 @@
+{% extends 'base.html' %}{% from '_macros.html' import figure with context %}
+{% block title %}{{ ex.name }}{% endblock %}
+{% block content %}
+<p><a href="{{ url_for('exercises') }}">← Back to library</a></p>
+<div class="grid g2" style="align-items:start">
+  <div>{{ figure(ex.position, ex.name) }}</div>
+  <div>
+    <h1>{{ ex.name }}</h1>
+    <p><span class="tag accent">{{ ex.difficulty|pretty }}</span><span class="tag">{{ ex.position|pretty }}</span>{% for c in ex.categories %}<span class="tag">{{ c|pretty }}</span>{% endfor %}</p>
+    <p class="muted">Targets: {{ ex.target_area|map('pretty')|join(', ') }} · Equipment: {{ (ex.equipment|reject('equalto','none')|map('pretty')|join(', ')) or 'None' }}</p>
+    <p class="muted">Suggested: {{ ex.default_sets }} set{{ '' if ex.default_sets == 1 else 's' }} × {{ (ex.default_reps ~ ' reps') if ex.default_reps else (ex.duration_seconds ~ ' seconds') }}</p>
+    <div class="btn-row">{% if user %}<a class="btn btn-primary" href="{{ url_for('dashboard') }}">Go to my routine</a>{% else %}<a class="btn btn-primary" href="{{ url_for('register') }}">Get a personalised routine</a>{% endif %}</div>
+  </div>
+</div>
+<div class="grid g2" style="margin-top:1.5rem;align-items:start">
+  <section class="card"><h2>How to do it</h2><ol class="inst">{% for s in ex.instructions %}<li>{{ s }}</li>{% endfor %}</ol>
+    <h3>Breathing</h3><p>{{ ex.breathing_tip }}</p></section>
+  <section class="card"><h2>Make it easier</h2><ul>{% for m in ex.common_modifications %}<li>{{ m }}</li>{% endfor %}</ul>
+    <h2>Safety notes</h2><ul>{% for m in ex.safety_notes %}<li>{{ m }}</li>{% endfor %}</ul>
+    {% if ex.avoid_if %}<p class="small muted">Not suggested by SHAKSHAM if you reported: {{ ex.avoid_if|map('pretty')|join(', ') }}.</p>{% endif %}</section>
+</div>
+<p class="notice" style="margin-top:1.5rem">Stop if you feel pain, dizziness or anything unusual. This is general information, not medical advice, and is pending review by a qualified professional.</p>
+{% endblock %}

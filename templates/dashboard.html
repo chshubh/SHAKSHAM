@@ -1,0 +1,62 @@
+{% extends 'base.html' %}{% from '_macros.html' import bars with context %}
+{% block title %}Dashboard{% endblock %}
+{% block content %}
+<h1>Hello, {{ user.name.split()[0] }}</h1>
+
+{% if safety %}
+<div class="notice safety" role="alert" style="margin:1rem 0">
+  <strong class="lead">We've paused your workout plan</strong>
+  <p>{{ safety.message }}</p>
+  <p class="small">You mentioned: {{ safety.labels|join('; ') }}.</p>
+  <div class="btn-row"><a class="btn" href="{{ url_for('assessment') }}">Update my answers</a><a class="btn" href="{{ url_for('exercises') }}">Browse the library</a></div>
+</div>
+{% elif not la %}
+<div class="card" style="margin:1rem 0"><h2>Let's build your routine</h2><p class="muted">A short assessment helps us pick exercises that suit you.</p><a class="btn btn-primary btn-lg" href="{{ url_for('assessment') }}">Start assessment</a></div>
+{% endif %}
+
+{% if caution %}
+<div class="notice" role="status" style="margin:1rem 0"><strong class="lead">Your last session ended early because something didn't feel right</strong>That was the right call. If it keeps happening, speak with a qualified professional before continuing. You can also retake your <a href="{{ url_for('assessment') }}">assessment</a>.</div>
+{% endif %}
+
+<div class="grid g4" style="margin:1rem 0">
+  <div class="card stat"><b>{{ stats.sessions }}</b><span>Completed sessions</span></div>
+  <div class="card stat"><b>{{ stats.streak }} day{{ '' if stats.streak == 1 else 's' }}</b><span>Current streak</span></div>
+  <div class="card stat"><b>{{ stats.total_minutes }}</b><span>Active minutes</span></div>
+  <div class="card stat"><b>{{ stats.active_days }}</b><span>Active days</span></div>
+</div>
+
+<div class="grid dash-split">
+  <div class="grid">
+    {% if plan %}
+    <section class="card" aria-labelledby="today">
+      <p class="eyebrow">Today's recommended workout</p>
+      <h2 id="today">{{ plan.row.name }}</h2>
+      <p class="muted">About {{ plan.row.duration_minutes }} minutes · {{ plan.steps|length }} exercises</p>
+      <ul class="plan-list">
+        {% for i in plan.steps %}<li><span><strong>{{ i.ex.name }}</strong><br><span class="muted small">{{ i.role|pretty }} · {{ i.sets }} × {{ (i.reps ~ ' reps') if i.reps else (i.duration_seconds ~ ' sec') }}</span></span><span class="tag">{{ i.ex.position|pretty }}</span></li>{% endfor %}
+      </ul>
+      <div class="btn-row"><a class="btn btn-primary btn-lg" href="{{ url_for('workout', pid=plan.row.id) }}">Start workout</a><a class="btn" href="{{ url_for('assessment') }}">Update my answers</a></div>
+      <details style="margin-top:1rem"><summary>Why this routine?</summary>
+        <ul>{% for n in plan.notes %}<li>{{ n }}</li>{% endfor %}</ul>
+        <ul class="small muted">{% for i in plan.steps %}<li><strong>{{ i.ex.name }}:</strong> {{ i.why }}</li>{% endfor %}</ul>
+      </details>
+    </section>
+    {% endif %}
+    <section class="card" aria-labelledby="wk"><h2 id="wk">This week</h2><p class="muted small">Active minutes per day</p>{{ bars(stats.week) }}
+      <a href="{{ url_for('progress') }}">See full progress →</a></section>
+  </div>
+  <aside class="grid">
+    {% if la and not la.blocked %}
+    <section class="card"><h3>Current goal</h3>
+      <p><span class="tag accent">{{ GOAL_LABELS[la.data.goal] }}</span></p>
+      <h3>Taken into account</h3>
+      <p>{% for l in la.data.limitations %}<span class="tag">{{ LIM_LABELS[l]|capitalize }}</span>{% else %}<span class="muted small">No limitations reported</span>{% endfor %}</p>
+    </section>
+    {% endif %}
+    <section class="card"><h3>Recent feedback</h3>
+      {% for r in recent %}<p style="display:flex;justify-content:space-between;gap:.5rem"><span>{{ r.name }}</span><span class="fb-pill fb-{{ r.rating }}">{{ r.rating|capitalize }}</span></p>
+      {% else %}<p class="muted small">Your "How did this feel?" answers will show up here.</p>{% endfor %}
+    </section>
+  </aside>
+</div>
+{% endblock %}

@@ -1,0 +1,15 @@
+{% extends 'base.html' %}
+{% block title %}Achievements{% endblock %}
+{% block content %}
+<h1>Achievements</h1>
+<p class="muted">Gentle milestones. Earned for showing up and listening to your body.</p>
+<div class="grid g3" style="margin-top:1rem">
+{% for a in rows %}
+  <article class="card badge-card {{ '' if a.earned_at else 'locked' }}">
+    <div class="ic" aria-hidden="true">{{ '★' if a.earned_at else '☆' }}</div>
+    <h3>{{ a.name }}</h3><p class="muted">{{ a.description }}</p>
+    <span class="tag {{ 'accent' if a.earned_at }}">{{ ('Earned ' ~ (a.earned_at|nice_date)) if a.earned_at else 'Not earned yet' }}</span>
+  </article>
+{% endfor %}
+</div>
+{% endblock %}

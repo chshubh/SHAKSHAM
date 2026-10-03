@@ -1,0 +1,15 @@
+{% extends 'base.html' %}{% from '_macros.html' import ex_card with context %}
+{% block title %}Exercise library{% endblock %}
+{% block content %}
+<h1>Exercise library</h1>
+<p class="muted">Every exercise shows modifications and safety notes. Browse freely, or take the assessment for a routine matched to you.</p>
+<form method="get" class="filters" role="search" id="filters">
+  <label>Search<input type="search" name="q" value="{{ q }}" placeholder="e.g. shoulders"></label>
+  <label>Goal<select name="category"><option value="">All</option>{% for k, l in GOAL_LABELS.items() %}<option value="{{ k }}" {{ 'selected' if cat == k }}>{{ l }}</option>{% endfor %}</select></label>
+  <label>Level<select name="difficulty"><option value="">All</option>{% for d in ['beginner','intermediate','advanced'] %}<option value="{{ d }}" {{ 'selected' if diff == d }}>{{ d|capitalize }}</option>{% endfor %}</select></label>
+  <label>Position<select name="position"><option value="">All</option>{% for p in ['seated','wall','standing','floor'] %}<option value="{{ p }}" {{ 'selected' if pos == p }}>{{ p|capitalize }}</option>{% endfor %}</select></label>
+  <button class="btn btn-primary" type="submit">Filter</button>
+</form>
+<p class="muted" role="status">{{ items|length }} exercise{{ '' if items|length == 1 else 's' }} found</p>
+<div class="grid g3">{% for ex in items %}{{ ex_card(ex) }}{% else %}<p>No exercises match those filters. <a href="{{ url_for('exercises') }}">Clear filters</a></p>{% endfor %}</div>
+{% endblock %}
